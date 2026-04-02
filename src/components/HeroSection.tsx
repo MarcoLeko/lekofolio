@@ -16,7 +16,7 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-12 px-8 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <h1 className="mb-8 max-w-2xl font-headline text-[3.5rem] font-[800] leading-[1.1] tracking-[-0.02em] text-primary">
-            {cv.hero.headline}
+            "{cv.hero.headline}"
           </h1>
           <div className="mb-8 h-1 w-24 bg-secondary-container" />
         </div>
