@@ -1,0 +1,189 @@
+{
+  "personal": {
+    "name": "Marco Leko",
+    "title": "Senior Software Engineer",
+    "location": "Ottobrunn, Germany",
+    "email": "Leko.Marco@outlook.com",
+    "phone": "+49 176 42013393",
+    "languages": [
+      {
+        "name": "German",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Business"
+      },
+      {
+        "name": "Italian",
+        "level": "Basic"
+      }
+    ]
+  },
+  "hero": {
+    "headline": "I build software that holds up in the real world.",
+    "subline": "Detail-oriented engineer focused on smooth, failure-free go-lives, with a strong curiosity for efficient and high-performance systems."
+  },
+  "about": {
+    "description": "I build software with real-world constraints in mind, with a strong focus on detail to ensure smooth and predictable go-lives. I care about the small things that make systems reliable in production. I'm naturally curious about efficient and high-performance solutions and enjoy refining systems until they truly hold up in practice.",
+    "highlights": [
+      "Strong focus on production readiness and smooth deployments",
+      "Experience with micro-frontends and scalable architectures",
+      "Driven by performance, efficiency, and clean system design"
+    ]
+  },
+  "socials": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/marco-leko-b74188210"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/MarcoLeko"
+    },
+    {
+      "platform": "Medium",
+      "url": "https://medium.com/@leko.marco"
+    },
+    {
+      "platform": "LeetCode",
+      "url": "https://leetcode.com/u/lekoma"
+    }
+  ],
+  "skills": {
+    "core": [
+      "Fullstack Development",
+      "Micro-Frontend Architecture",
+      "System Design",
+      "CI/CD Optimization",
+      "Performance Optimization"
+    ],
+    "languages": [
+      {
+        "type": "TypeScript",
+        "level": "Deep"
+      },
+      {
+        "type": "TypeScript",
+        "level": "Deep"
+      },
+      {
+        "type": "JavaScript",
+        "level": "Deep"
+      },
+      {
+        "type": "PHP",
+        "level": "Deep"
+      },
+      {
+        "type": "Go",
+        "level": "Beginner"
+      }
+    ],
+    "frameworks": [
+      "React",
+      "NestJS",
+      "fastify",
+      "gRPC / Protobuf",
+      "Symfony"
+    ],
+    "infrastructure": [
+      "Terraform (IaC)",
+      "Docker",
+      "Gitlab CI/CD",
+      "Puppeteer",
+      "Terraform",
+      "Apache Kafka"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Jochen Schweizer / Mydays Group",
+      "role": "Senior Fullstack Software Engineer",
+      "period": "2024 - Present",
+      "highlights": [
+        "Reduced CI/CD pipeline runtime by 50% by introducing Docker layer caching and optimizing build processes",
+        "Led migration from Salesforce to a micro-frontend and microservice architecture",
+        "Coordinated migration of ~32k products with zero downtime",
+        "Built a scalable, brand-flexible design system"
+      ]
+    },
+    {
+      "company": "Jochen Schweizer / Mydays Group",
+      "role": "Fullstack Software Engineer",
+      "period": "2022 - 2024",
+      "highlights": [
+        "Built Slack integration aggregating logs and metrics from multiple tools",
+        "Improved observability and reduced incident response time",
+        "Expanded E2E testing strategy with frontend test coverage",
+        "Introduced TypeScript with a gradual adoption strategy"
+      ]
+    },
+    {
+      "company": "Jochen Schweizer / Mydays Group",
+      "role": "Frontend Developer",
+      "period": "2020 - 2022",
+      "highlights": [
+        "Worked on micro-frontend architecture",
+        "Contributed to large-scale migration from legacy systems",
+        "Improved maintainability and frontend architecture"
+      ]
+    },
+    {
+      "company": "Bertrandt AG",
+      "role": "Software Developer",
+      "period": "2019",
+      "highlights": [
+        "Maintained a BMW web application for remote vehicle control",
+        "Worked with real-time communication systems (WebSockets)"
+      ]
+    },
+    {
+      "company": "Payback GmbH",
+      "role": "Intern Software Developer",
+      "period": "2017 - 2018",
+      "highlights": [
+        "Worked with Angular",
+        "Learned E2E testing with Protractor",
+        "Contributed to partner configuration systems"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "E-Commerce Platform",
+      "description": "Modern platform focused on performance, scalability, and user experience using micro-frontends and service-based architecture."
+    },
+    {
+      "name": "Automotive Web App",
+      "description": "Web application enabling remote control of vehicle functions via real-time communication."
+    },
+    {
+      "name": "Loyalty Platform",
+      "description": "Internal enterprise system supporting partner integrations, user engagement, and configurable business logic."
+    }
+  ],
+  "talks": [
+    {
+      "title": "Working with Micro-Frontends after 2 Years in Production",
+      "event": "ITCS Munich"
+    },
+    {
+      "title": "Deploying with Confidence: CI/CD Journey",
+      "event": "ITCS Munich",
+      "video": "https://www.youtube.com/watch?v=GGSMgFgj-gI"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Munich University of Applied Sciences",
+      "degree": "B.Sc. Business Informatics",
+      "period": "2013 - 2019"
+    },
+    {
+      "institution": "Fachoberschule für Wirtschaft (Business administration focused)",
+      "degree": "Secondary education",
+      "period": "2011 - 2013"
+    }
+  ]
+}
