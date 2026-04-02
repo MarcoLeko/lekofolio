@@ -51,24 +51,14 @@
     }
   ],
   "skills": {
-    "core": [
+    "interests": [
       "Fullstack Development",
-      "Micro-Frontend Architecture",
       "System Design",
-      "CI/CD Optimization",
-      "Performance Optimization"
+      "Data structure & Algorithms"
     ],
     "languages": [
       {
-        "type": "TypeScript",
-        "level": "Deep"
-      },
-      {
-        "type": "TypeScript",
-        "level": "Deep"
-      },
-      {
-        "type": "JavaScript",
+        "type": "TypeScript / JavaScript",
         "level": "Deep"
       },
       {
@@ -91,7 +81,6 @@
       "Terraform (IaC)",
       "Docker",
       "Gitlab CI/CD",
-      "Puppeteer",
       "Terraform",
       "Apache Kafka"
     ]
@@ -143,8 +132,8 @@
       "role": "Intern Software Developer",
       "period": "2017 - 2018",
       "highlights": [
-        "Worked with Angular",
-        "Learned E2E testing with Protractor",
+        "Introduction into web-development with Angular",
+        "E2E testing with Protractor",
         "Contributed to partner configuration systems"
       ]
     }

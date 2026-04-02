@@ -1,8 +1,10 @@
 import MaterialIcon from "./MaterialIcon";
+import cv from "../../cv.json";
 
 type SkillItem = {
   label: string;
   tag?: string;
+  tagClassName?: string;
 };
 
 type SkillCategory = {
@@ -11,25 +13,45 @@ type SkillCategory = {
   items: SkillItem[];
 };
 
+const levelTierClassMap: Record<string, string> = {
+  deep: "bg-tertiary-container text-on-tertiary-container",
+  advanced: "bg-secondary-container text-on-secondary",
+  intermediate: "bg-secondary-fixed text-on-secondary-fixed",
+  beginner: "bg-surface-container-high text-on-surface-variant",
+  basic: "bg-surface-container-high text-on-surface-variant",
+};
+
+function getLevelTagClass(level: string): string {
+  return (
+    levelTierClassMap[level.toLowerCase()] ??
+    "bg-surface-container text-on-surface-variant"
+  );
+}
+
 const categories: SkillCategory[] = [
+  {
+    icon: "star",
+    title: "Interests",
+    items: cv.skills.interests.map((item) => ({ label: item })),
+  },
   {
     icon: "terminal",
     title: "Languages",
-    items: [
-      { label: "Go (Golang)", tag: "EXPERT" },
-      { label: "Rust", tag: "SYSTEMS" },
-      { label: "TypeScript" },
-    ],
+    items: cv.skills.languages.map((item) => ({
+      label: item.type,
+      tag: item.level.toUpperCase(),
+      tagClassName: getLevelTagClass(item.level),
+    })),
   },
   {
     icon: "layers",
     title: "Frameworks",
-    items: [{ label: "React / Next.js" }, { label: "gRPC / Protobuf" }, { label: "Apache Kafka" }],
+    items: cv.skills.frameworks.map((item) => ({ label: item })),
   },
   {
     icon: "dns",
     title: "Infrastructure",
-    items: [{ label: "Kubernetes / Docker" }, { label: "Terraform (IaC)" }, { label: "AWS / GCP / Azure" }],
+    items: cv.skills.infrastructure.map((item) => ({ label: item })),
   },
 ];
 
@@ -37,22 +59,29 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="bg-surface py-32">
       <div className="mx-auto max-w-7xl px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {categories.map((category) => (
             <div key={category.title} className="space-y-8">
               <div className="flex items-center gap-3">
                 <MaterialIcon icon={category.icon} className="text-secondary" />
-                <h4 className="font-headline text-sm font-bold uppercase tracking-widest text-primary">{category.title}</h4>
+                <h4 className="font-headline text-sm font-bold uppercase tracking-widest text-primary">
+                  {category.title}
+                </h4>
               </div>
               <ul className="space-y-4">
                 {category.items.map((item) => (
-                  <li key={item.label} className="group flex cursor-default items-center justify-between">
+                  <li
+                    key={item.label}
+                    className="group flex cursor-default items-center justify-between"
+                  >
                     <span className="font-body text-on-surface-variant transition-colors group-hover:text-primary">
                       {item.label}
                     </span>
                     <span className="mx-4 h-px flex-grow bg-outline-variant/20" />
                     {item.tag ? (
-                      <span className="rounded-full bg-tertiary-container px-2 py-0.5 font-label text-[10px] text-on-tertiary-container">
+                      <span
+                        className={`rounded-full px-2 py-0.5 font-label text-[10px] ${item.tagClassName ?? ""}`.trim()}
+                      >
                         {item.tag}
                       </span>
                     ) : null}

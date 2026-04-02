@@ -1,3 +1,5 @@
+import cv from "../../cv.json";
+
 export default function HeroSection() {
   return (
     <header className="relative flex min-h-[819px] items-center overflow-hidden py-24">
@@ -12,17 +14,15 @@ export default function HeroSection() {
       />
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-12 px-8 lg:grid-cols-12">
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           <h1 className="mb-8 max-w-2xl font-headline text-[3.5rem] font-[800] leading-[1.1] tracking-[-0.02em] text-primary">
-            Architecting Scalable Systems
+            {cv.hero.headline}
           </h1>
           <div className="mb-8 h-1 w-24 bg-secondary-container" />
         </div>
-        <div className="lg:col-span-4">
+        <div className="lg:col-span-3">
           <p className="border-l border-outline-variant/30 py-2 pl-6 font-body text-lg leading-relaxed text-on-surface-variant">
-            I specialize in building distributed infrastructure that powers global-scale applications. With a decade of
-            experience across high-growth startups and tech giants, I bridge the gap between abstract architecture and
-            production-ready code.
+            {cv.hero.subline}
           </p>
         </div>
       </div>
