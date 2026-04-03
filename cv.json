@@ -21,8 +21,8 @@
     ]
   },
   "hero": {
-    "headline": "I build software that holds their own in the real world.",
-    "subline": "I focus on the details others might skip. I’m driven by natural curiosity for efficient and high-performing solutions and enjoy turning good systems into ones that quietly excel."
+    "headline": "I care about the details that make software succeed.",
+    "subline": "From smooth go-lives to efficient, high-performance systems - I focus on what actually matters in production and refine until it works the way it should."
   },
   "about": {
     "description": "I build software with real-world constraints in mind, with a strong focus on detail to ensure smooth and predictable go-lives. I care about the small things that make systems reliable in production. I'm naturally curious about efficient and high-performance solutions and enjoy refining systems until they truly hold up in practice.",
@@ -91,10 +91,9 @@
       "role": "Senior Fullstack Software Engineer",
       "period": "2024 - Present",
       "highlights": [
-        "Reduced CI/CD pipeline runtime by 50% by introducing Docker layer caching and optimizing build processes",
-        "Led migration from Salesforce to a micro-frontend and microservice architecture",
-        "Coordinated migration of ~32k products with zero downtime",
-        "Built a scalable, brand-flexible design system"
+        "Cut CI/CD pipeline runtime by 50% (20 → 10 min) through Docker optimization, layer caching, and streamlined build steps",
+        "Led migration of ~32k products from legacy system to new platform with zero downtime, enabling smooth onboarding of a new brand",
+        "Implemented faceted search for 60k products using Algolia, improving discoverability and increasing add-to-cart rates"
       ]
     },
     {
@@ -102,10 +101,9 @@
       "role": "Fullstack Software Engineer",
       "period": "2022 - 2024",
       "highlights": [
-        "Built Slack integration aggregating logs and metrics from multiple tools",
-        "Improved observability and reduced incident response time",
-        "Expanded E2E testing strategy with frontend test coverage",
-        "Introduced TypeScript with a gradual adoption strategy"
+        "Built a Slack integration aggregating logs and metrics across tools, improving observability and reducing incident response time",
+        "Extended E2E testing with full UI user journeys, enabling faster detection of faulty deployments",
+        "Contributed to a scalable, brand-aware design system for a multi-brand platform"
       ]
     },
     {
@@ -113,9 +111,7 @@
       "role": "Frontend Developer",
       "period": "2020 - 2022",
       "highlights": [
-        "Worked on micro-frontend architecture",
-        "Contributed to large-scale migration from legacy systems",
-        "Improved maintainability and frontend architecture"
+        "Introduction into Micro-frontends / Micro-services architecture by contributing in a large-scale migration from legacy system"
       ]
     },
     {
@@ -123,8 +119,7 @@
       "role": "Software Developer",
       "period": "2019",
       "highlights": [
-        "Maintained a BMW web application for remote vehicle control",
-        "Worked with real-time communication systems (WebSockets)"
+        "Developed a BMW web application to remote control vehicle features with real-time communication systems (WebSockets)"
       ]
     },
     {
@@ -132,9 +127,7 @@
       "role": "Intern Software Developer",
       "period": "2017 - 2018",
       "highlights": [
-        "Introduction into web-development with Angular",
-        "E2E testing with Protractor",
-        "Contributed to partner configuration systems"
+        "Introduction into web-development with Angular by maintaining a loyalty partner management system and verifying functionality with Protractor E2E testing"
       ]
     }
   ],
