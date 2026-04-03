@@ -29,10 +29,12 @@ export default function TopNavBar() {
         <a
           href="/"
           aria-label="Go to homepage"
-          className="mt-[24px] self-start flex flex-col items-center text-xl font-headline font-extrabold tracking-tighter text-indigo-950"
+          className="mt-[24px] self-start flex flex-col items-center"
         >
-          {cv.personal.name}
-          <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-white bg-surface-container shadow-card md:h-16 md:w-16">
+          <span className="hidden md:block text-xl font-headline font-extrabold tracking-tighter text-indigo-950">
+            {cv.personal.name}
+          </span>
+          <div className="transition-transform duration-200 hover:scale-200 h-24 w-24 overflow-hidden rounded-full border-2 border-white bg-surface-container shadow-card md:h-16 md:w-16">
             <img
               src={ProfileImg}
               alt={`${cv.personal.name} portrait`}
