@@ -5,6 +5,7 @@ import LeetcodeLogo from "../assets/Leetcode.svg?react";
 import MediumLogo from "../assets/Medium.svg?react";
 import ProfileImg from "../assets/profile.jpg";
 import cv from "../../cv.json";
+import { useMdScrollTriggeredScale } from "../hooks/useMdScrollTriggeredScale";
 
 const navItems = [
   { href: "#experience", label: "Experience" },
@@ -13,6 +14,10 @@ const navItems = [
 ];
 
 export default function TopNavBar() {
+  const profileScale = useMdScrollTriggeredScale({
+    sentinelId: "scroll-top-sentinel",
+  });
+
   const socialIconMap: Record<
     string,
     ComponentType<SVGProps<SVGSVGElement>>
@@ -34,7 +39,10 @@ export default function TopNavBar() {
           <span className="hidden md:block text-xl font-headline font-extrabold tracking-tighter text-indigo-950">
             {cv.personal.name}
           </span>
-          <div className="transition-transform duration-200 hover:scale-200 h-24 w-24 overflow-hidden rounded-full border-2 border-white bg-surface-container shadow-card md:h-16 md:w-16">
+          <div
+            className="h-24 w-24 overflow-hidden rounded-full border-2 border-white bg-surface-container shadow-card transition-transform duration-300 md:h-16 md:w-16"
+            style={{ transform: `scale(${profileScale})` }}
+          >
             <img
               src={ProfileImg}
               alt={`${cv.personal.name} portrait`}

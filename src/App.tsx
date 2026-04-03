@@ -8,14 +8,15 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-      <div className="bg-surface font-body text-on-surface antialiased">
-        <TopNavBar />
-        <HeroSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <EducationSection />
-        <Footer />
-      </div>
+    <div className="bg-surface font-body text-on-surface antialiased">
+      <div id="scroll-top-sentinel" className="h-px w-full" aria-hidden="true" />
+      <TopNavBar />
+      <HeroSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <EducationSection />
+      <Footer />
+    </div>
   );
 }
