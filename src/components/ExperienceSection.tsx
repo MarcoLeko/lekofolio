@@ -34,7 +34,7 @@ function Card(props: CardProps) {
       onMouseEnter={props.onHoverStart}
       onMouseLeave={props.onHoverEnd}
     >
-      <div className="group w-full max-w-md rounded-2xl border border-outline-variant/10 bg-surface/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-primary hover:shadow-2xl">
+      <div className="group w-full max-w-md rounded-2xl border border-outline-variant/10 bg-surface/20 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-primary/20 hover:shadow-xl">
         <span className="mb-2 block font-label text-xs font-bold uppercase tracking-widest text-outline">
           {props.entry.period}
         </span>
@@ -116,11 +116,11 @@ export default function ExperienceSection() {
           >
             <path
               d={pathD}
-              className="fill-none stroke-primary/10 [stroke-width:6] [stroke-linecap:round]"
+              className="fill-none stroke-indigo-500/40 [stroke-width:6] [stroke-linecap:round]"
             />
             <path
               d={pathD}
-              className={`fill-none stroke-primary/40 [stroke-width:1] [stroke-dasharray:5_10] ${
+              className={`fill-none stroke-indigo-500/80 [stroke-width:1] [stroke-dasharray:5_10] ${
                 hoveredIndex !== null ? "experience-path-dash-animate" : ""
               }`}
             />
@@ -144,17 +144,29 @@ export default function ExperienceSection() {
           ))}
         </div>
 
-        <div className="flex justify-center h-full">
-          <div className="space-y-6 md:hidden">
-            {entries.map((entry, index) => (
-              <Card
-                key={`mobile-card-${index}`}
-                entry={entry}
-                heightPerEntry={heightPerEntry}
-                onHoverStart={() => setHoveredIndex(index)}
-                onHoverEnd={() => setHoveredIndex(null)}
-              />
-            ))}
+        <div className="md:hidden">
+          <div className="relative ml-4 border-l-2 border-primary/20 pl-6 space-y-8 py-4">
+            {entries.map((entry, index) => {
+              const isActive = index === 0 || hoveredIndex === index;
+              return (
+                <div key={`mobile-card-${index}`} className="relative">
+                  {/* Timeline Dot */}
+                  <div
+                    className={`absolute -left-[31px] top-8 h-3 w-3 rounded-full ring-4 ring-surface transition-all duration-300 ${
+                      isActive
+                        ? "bg-primary/75 ring-primary/15 shadow-lg scale-125"
+                        : "bg-outline-variant/75 shadow-none"
+                    }`}
+                  />
+                  <Card
+                    entry={entry}
+                    heightPerEntry={heightPerEntry}
+                    onHoverStart={() => setHoveredIndex(index)}
+                    onHoverEnd={() => setHoveredIndex(null)}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
