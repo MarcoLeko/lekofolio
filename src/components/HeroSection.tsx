@@ -58,7 +58,7 @@ export default function HeroSection() {
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-8 lg:grid-cols-12">
         <div className="flex flex-col justify-center lg:col-span-7">
           <p className="max-w-xl py-2 font-body text-lg leading-relaxed">
-            Software Engineer
+            {cv.personal.title}
           </p>
           <h1 className="mb-8 max-w-2xl font-headline text-[3.5rem] font-[800] leading-[1.1] tracking-[-0.02em] text-primary">
             {cv.hero.headline}
