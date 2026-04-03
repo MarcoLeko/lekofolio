@@ -83,9 +83,9 @@ export default function ExperienceSection() {
     for (let i = 0; i < segmentCount; i += 1) {
       const yBase = i * segmentHeight;
       const nextY = (i + 1) * segmentHeight;
-      const sweepX = entries[i]?.isRight ? 900 : 100;
+      const sweepX = entries[i]?.isRight ? 950 : 50;
 
-      d += ` C ${sweepX} ${yBase + 150}, ${sweepX} ${nextY - 150}, 500 ${nextY}`;
+      d += ` C ${sweepX} ${yBase + 100}, ${sweepX} ${nextY - 100}, 500 ${nextY}`;
     }
 
     return d;

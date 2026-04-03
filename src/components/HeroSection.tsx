@@ -31,9 +31,9 @@ const socialIconMap: Record<
 };
 const socialUiMap: Record<SocialPlatform, { pos: string; delay: string }> = {
   LinkedIn: { pos: "-top-2 -left-4", delay: "0s" },
-  GitHub: { pos: "top-1/2 -right-10", delay: "0.2s" },
-  LeetCode: { pos: "-bottom-4 left-1/4", delay: "0.4s" },
-  Medium: { pos: "top-1/4 -right-8", delay: "0.1s" },
+  GitHub: { pos: "top-3/5 -right-10", delay: "0.2s" },
+  LeetCode: { pos: "-bottom-4 left-1/5", delay: "0.4s" },
+  Medium: { pos: "top-1 -right-[-15px]", delay: "0.1s" },
 };
 const socials: SocialViewModel[] = (cv.socials as SocialItem[]).map((s) => ({
   Icon: socialIconMap[s.platform],
@@ -44,7 +44,7 @@ const socials: SocialViewModel[] = (cv.socials as SocialItem[]).map((s) => ({
 
 export default function HeroSection() {
   return (
-    <header className="relative flex min-h-[819px] items-center overflow-hidden py-24">
+    <header className="relative flex min-h-[619px] items-center overflow-hidden py-24">
       <div className="blob-bg absolute left-1/4 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -57,8 +57,11 @@ export default function HeroSection() {
 
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-8 lg:grid-cols-12">
         <div className="flex flex-col justify-center lg:col-span-7">
+          <p className="max-w-xl py-2 font-body text-lg leading-relaxed">
+            Software Engineer
+          </p>
           <h1 className="mb-8 max-w-2xl font-headline text-[3.5rem] font-[800] leading-[1.1] tracking-[-0.02em] text-primary">
-            "{cv.hero.headline}"
+            {cv.hero.headline}
           </h1>
           <div className="mb-8 h-1 w-24 bg-secondary-container" />
           <p className="max-w-xl border-l border-outline-variant/30 py-2 pl-6 font-body text-lg leading-relaxed text-on-surface-variant">
@@ -84,14 +87,25 @@ export default function HeroSection() {
               </a>
             ))}
 
-            <div className="absolute inset-0 scale-105 rounded-full bg-gradient-to-tr from-primary to-secondary opacity-30 blur-2xl" />
-
-            <div className="relative h-full w-full bg-surface-container-high p-1 shadow-2xl [clip-path:polygon(50%_0%,93%_25%,93%_75%,50%_100%,7%_75%,7%_25%)]">
+            <div className="absolute inset-0 scale-105 rounded-full bg-gradient-to-tr from-primary to-secondary opacity-30 blur-3xl" />
+            <svg width="0" height="0" className="absolute">
+              <defs>
+                <clipPath id="hex-clip" clipPathUnits="objectBoundingBox">
+                  <path d="M 0.465,0.02 Q 0.5,0 0.535,0.02 L 0.896,0.23 Q 0.93,0.25 0.93,0.27 L 0.93,0.73 Q 0.93,0.75 0.896,0.77 L 0.535,0.98 Q 0.5,1 0.465,0.98 L 0.104,0.77 Q 0.07,0.75 0.07,0.73 L 0.07,0.27 Q 0.07,0.25 0.104,0.23 Z" />
+                </clipPath>
+              </defs>
+            </svg>
+            <div
+              className="relative h-full w-full"
+              style={{ clipPath: "url(#hex-clip)" }}
+            >
               <img
                 src={ProfileImg}
                 alt="Profile picture"
-                className="h-full w-full object-cover [clip-path:polygon(50%_0%,93%_25%,93%_75%,50%_100%,7%_75%,7%_25%)]"
+                className="h-full w-full object-cover hexagon"
               />
+              <div className="hex-small one mix-blend-overlay" />
+              <div className="hex-small two mix-blend-overlay" />
             </div>
           </div>
         </div>
