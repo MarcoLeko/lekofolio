@@ -81,7 +81,7 @@ export default function WritingsSection() {
     }));
 
   return (
-    <section id="projects" className="bg-surface-container-low py-24 md:py-32">
+    <section id="writings" className="bg-surface-container-low py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-8">
         <h2 className="mb-16 font-headline text-[1.75rem] font-bold tracking-tight text-primary">
           Writings
