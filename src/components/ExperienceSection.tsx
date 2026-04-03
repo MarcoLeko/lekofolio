@@ -11,10 +11,11 @@ type ExperienceEntry = {
 
 type CardProps = {
   entry: ExperienceEntry;
-  yPos: number;
+  yPos?: number;
   heightPerEntry: number;
   onHoverStart: () => void;
   onHoverEnd: () => void;
+  className?: string;
 };
 
 const entries: ExperienceEntry[] = cv.experience.map((item, index, array) => ({
@@ -27,12 +28,9 @@ const entries: ExperienceEntry[] = cv.experience.map((item, index, array) => ({
 function Card(props: CardProps) {
   return (
     <div
-      className={`relative flex flex-col transition-all duration-500 md:absolute md:w-[42%] 
+      className={`${props.className ?? ""} relative flex flex-col transition-all duration-500 md:absolute md:w-[42%] md:-translate-y-1/2
                       ${props.entry.isRight ? "md:right-[55%] md:items-end" : "md:left-[55%]"}`}
-      style={{
-        top: `${props.yPos}px`,
-        transform: "translateY(-50%)",
-      }}
+      style={props.yPos !== undefined ? { top: `${props.yPos}px` } : undefined}
       onMouseEnter={props.onHoverStart}
       onMouseLeave={props.onHoverEnd}
     >
@@ -98,7 +96,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-surface-container-low py-32"
+      className="relative overflow-hidden bg-surface-container-low py-24 md:py-32"
     >
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 
@@ -107,7 +105,10 @@ export default function ExperienceSection() {
           Technical Trajectory
         </h2>
 
-        <div className="relative w-full" style={{ height: `${totalHeight}px` }}>
+        <div
+          className="relative w-full md:block hidden"
+          style={{ height: `${totalHeight}px` }}
+        >
           <svg
             className="absolute inset-0 hidden h-full w-full pointer-events-none md:block"
             viewBox={`0 0 1000 ${totalHeight}`}
@@ -124,23 +125,35 @@ export default function ExperienceSection() {
               }`}
             />
           </svg>
+          {entries.map((entry, index) => (
+            <div key={index}>
+              <Card
+                entry={entry}
+                yPos={index * 500}
+                heightPerEntry={heightPerEntry}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+                className="hidden md:block"
+              />
+              <Dot
+                index={index}
+                yPos={(index / (entries.length - 1)) * totalHeight}
+                isActive={index === 0 || hoveredIndex === index}
+              />
+            </div>
+          ))}
+        </div>
 
-          <div className="relative h-full">
+        <div className="flex justify-center h-full">
+          <div className="space-y-6 md:hidden">
             {entries.map((entry, index) => (
-              <div key={index}>
-                <Card
-                  entry={entry}
-                  yPos={index * 500}
-                  heightPerEntry={heightPerEntry}
-                  onHoverStart={() => setHoveredIndex(index)}
-                  onHoverEnd={() => setHoveredIndex(null)}
-                />
-                <Dot
-                  index={index}
-                  yPos={(index / (entries.length - 1)) * totalHeight}
-                  isActive={index === 0 || hoveredIndex === index}
-                />
-              </div>
+              <Card
+                key={`mobile-card-${index}`}
+                entry={entry}
+                heightPerEntry={heightPerEntry}
+                onHoverStart={() => setHoveredIndex(index)}
+                onHoverEnd={() => setHoveredIndex(null)}
+              />
             ))}
           </div>
         </div>

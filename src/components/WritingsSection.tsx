@@ -6,6 +6,7 @@ type Writing = {
   title: string;
   image: string;
   description: string;
+  categories: string[];
   accent: string;
   iconAccent: string;
   url: string;
@@ -15,6 +16,7 @@ type MediumArticle = {
   title: string;
   link: string;
   description: string;
+  categories?: string[];
 };
 
 type Rss2JsonResponse = {
@@ -69,6 +71,7 @@ export default function WritingsSection() {
       description: getExcerpt(
         extractDescriptionFromHtml(article.description, article.title),
       ),
+      categories: (article.categories ?? []).slice(0, 2),
       accent: index % 2 === 0 ? "border-tertiary-fixed" : "border-secondary",
       iconAccent:
         index % 2 === 0
@@ -78,7 +81,7 @@ export default function WritingsSection() {
     }));
 
   return (
-    <section id="projects" className="bg-surface-container-low py-32">
+    <section id="projects" className="bg-surface-container-low py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-8">
         <h2 className="mb-16 font-headline text-[1.75rem] font-bold tracking-tight text-primary">
           Writings
@@ -90,13 +93,32 @@ export default function WritingsSection() {
               href={writing.url}
               target="_blank"
               rel="noreferrer"
-              className={`group border-l-2 bg-surface-container-lowest p-10 shadow-card transition-all duration-300 hover:-translate-y-1 ${writing.accent}`}
+              className={`group border-l-2 bg-surface-container-lowest p-8 shadow-card transition-all duration-300 hover:-translate-y-1 ${writing.accent}`}
             >
               <div className="mb-8 flex items-start justify-between">
                 <div>
                   <h3 className="mb-2 font-headline text-2xl font-bold text-primary">
                     {writing.title}
                   </h3>
+                  {writing.categories.length > 0 && (
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      {writing.categories.map((category) => (
+                        <span
+                          key={`${writing.title}-${category}`}
+                          className="rounded-full bg-surface-container px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide text-on-surface-variant"
+                        >
+                          {category}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  {writing.image && (
+                    <img
+                      src={writing.image}
+                      className="rounded-2xl mb-4"
+                      height="24"
+                    />
+                  )}
                   {writing.description && (
                     <p className="font-body text-sm text-on-surface-variant">
                       {writing.description}
@@ -108,7 +130,6 @@ export default function WritingsSection() {
                   className={`text-outline-variant transition-colors ${writing.iconAccent}`}
                 />
               </div>
-              {writing.image && <img src={writing.image} />}
               <div className="mt-8 h-1 w-16 bg-outline-variant/50" />
             </a>
           ))}
