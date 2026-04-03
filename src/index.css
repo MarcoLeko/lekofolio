@@ -4,6 +4,22 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+#experience,
+#skills,
+#projects {
+  scroll-margin-top: 4rem;
+}
+
 @theme {
   --color-surface-container-low: #f2f4f6;
   --color-surface-container-highest: #e0e3e5;

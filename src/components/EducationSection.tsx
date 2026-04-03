@@ -18,7 +18,7 @@ export default function EducationSection() {
       <div className="mx-auto max-w-7xl px-8">
         <div className="flex flex-col justify-between gap-8 border-t border-outline-variant/20 pt-16 md:flex-row md:items-center">
           <h2 className="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary">
-            Formation
+            Education
           </h2>
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-16">
             {education.map((item, index) => (

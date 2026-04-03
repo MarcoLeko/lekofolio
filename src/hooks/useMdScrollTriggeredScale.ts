@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 type UseMdScrollTriggeredScaleOptions = {
-  sentinelId?: string;
+  sentinelId: string;
 };
 
 export function useMdScrollTriggeredScale({
   sentinelId,
-}: UseMdScrollTriggeredScaleOptions = {}) {
+}: UseMdScrollTriggeredScaleOptions) {
   const breakpointQuery = "(min-width: 768px)";
   const [isMdUp, setIsMdUp] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);

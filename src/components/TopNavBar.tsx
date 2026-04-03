@@ -1,4 +1,4 @@
-import type { ComponentType, SVGProps } from "react";
+import type { ComponentType, MouseEvent, SVGProps } from "react";
 import LinkedInLogo from "../assets/LinkedIn.svg?react";
 import GitHubLogo from "../assets/GitHub.svg?react";
 import LeetcodeLogo from "../assets/Leetcode.svg?react";
@@ -18,6 +18,14 @@ export default function TopNavBar() {
     sentinelId: "scroll-top-sentinel",
   });
 
+  const handleScrollTopClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const cleanUrl = `${window.location.pathname}${window.location.search}`;
+    window.history.replaceState(null, "", cleanUrl);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const socialIconMap: Record<
     string,
     ComponentType<SVGProps<SVGSVGElement>>
@@ -35,6 +43,7 @@ export default function TopNavBar() {
           href="/"
           aria-label="Go to homepage"
           className="mt-[24px] self-start flex flex-col items-center"
+          onClick={handleScrollTopClick}
         >
           <span className="hidden md:block text-xl font-headline font-extrabold tracking-tighter text-indigo-950">
             {cv.personal.name}
