@@ -152,8 +152,9 @@ export default function WritingsSection() {
         </h2>
 
         <div
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-8 px-8 scroll-pl-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-8 px-8 scroll-pl-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overscroll-x-contain"
           onScroll={handleScroll}
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between min-h-[380px] md:min-h-0">
             <div>
