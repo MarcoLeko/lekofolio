@@ -1,5 +1,6 @@
 import cv from "../../cv.json";
 import ProfileImg from "../assets/profile.jpg";
+import cvPdfUrl from "../assets/Marco_Leko_CV.pdf";
 import LinkedInLogo from "../assets/LinkedIn.svg?react";
 import GitHubLogo from "../assets/GitHub.svg?react";
 import LeetcodeLogo from "../assets/Leetcode.svg?react";
@@ -145,12 +146,16 @@ export default function HeroSection() {
               </p>
             </div>
             <div>
-              <button className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 rounded hover:bg-primary hover:text-on-primary transition-all duration-300 font-headline font-bold text-sm">
+              <a 
+                href={cvPdfUrl} 
+                download="Marco_Leko_CV.pdf"
+                className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 rounded hover:bg-primary hover:text-on-primary transition-all duration-300 font-headline font-bold text-sm"
+              >
                 <span className="material-symbols-outlined text-base">
                   download
                 </span>
                 Download Full CV
-              </button>
+              </a>
             </div>
           </div>
         </div>
