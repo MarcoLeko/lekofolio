@@ -119,7 +119,7 @@
     {
       "company": "Bertrandt AG",
       "role": "Software Developer",
-      "period": "2019",
+      "period": "2019 - 2020",
       "highlights": [
         "Developed a BMW web application to remote control vehicle features with real-time communication systems (WebSockets)"
       ]
@@ -136,12 +136,14 @@
   "talks": [
     {
       "title": "Working with Micro-Frontends after 2 Years in Production",
-      "event": "ITCS Munich"
+      "event": "ITCS Munich",
+      "image": "https://media.licdn.com/dms/image/v2/D4E22AQF9-RM_E1ysNQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1667244146347?e=1776902400&v=beta&t=J6gMM22vc8kAD5CWEIFfJslzX2M-rAQ36zd_kJ-iNX8"
     },
     {
       "title": "Deploying with Confidence: CI/CD Journey",
       "event": "ITCS Munich",
-      "video": "https://www.youtube.com/watch?v=GGSMgFgj-gI"
+      "video": "https://www.youtube.com/watch?v=GGSMgFgj-gI",
+      "image": "https://media.licdn.com/dms/image/v2/D4D22AQEPnZgibZsEmQ/feedshare-shrink_2048_1536/feedshare-shrink_2048_1536/0/1730135529574?e=1776902400&v=beta&t=L9GH1b6ymUSyQx87o4Pvnd75VGl5AbXgWpmI_5U3vV8"
     }
   ],
   "education": [

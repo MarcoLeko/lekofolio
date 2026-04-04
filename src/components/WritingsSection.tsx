@@ -18,6 +18,7 @@ type Talk = {
   title: string;
   event: string;
   video?: string;
+  image?: string;
 };
 
 type MediumArticle = {
@@ -154,7 +155,7 @@ export default function WritingsSection() {
         <div
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-8 px-8 scroll-pl-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overscroll-x-contain"
           onScroll={handleScroll}
-          style={{ WebkitOverflowScrolling: 'touch' }}
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between min-h-[380px] md:min-h-0">
             <div>
@@ -168,16 +169,12 @@ export default function WritingsSection() {
                 {cv.talks[0].event}
               </p>
             </div>
-            {cv.talks[0].video && (
-              <a
-                href={cv.talks[0].video}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
-              >
-                Watch Talk
-                <MaterialIcon icon="play_circle" className="text-xl" />
-              </a>
+            {cv.talks[0].image && (
+              <img
+                src={cv.talks[0].image}
+                className="h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                alt=""
+              />
             )}
           </Card>
           <Card
@@ -313,11 +310,18 @@ export default function WritingsSection() {
                 href={cv.talks[1].video}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-8 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                className="mt-4 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
               >
                 Watch Talk
                 <MaterialIcon icon="play_circle" className="text-xl" />
               </a>
+            )}
+            {cv.talks[1].image && (
+              <img
+                src={cv.talks[1].image}
+                className="h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                alt=""
+              />
             )}
           </Card>
           <Card
