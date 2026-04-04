@@ -214,23 +214,27 @@ export default function WritingsSection() {
                   {writings[0].description}
                 </p>
                 {writings[0].categories.length > 0 && (
-                  <div className="my-4 flex flex-wrap gap-2">
-                    {writings[0].categories.map((cat) => (
-                      <span
-                        key={cat}
-                        className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[0].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                      >
-                        {cat}
-                      </span>
-                    ))}
+                  <div className="my-4 flex flex-wrap justify-between">
+                    {writings[0].categories.length > 0 && (
+                      <div className="my-4 flex flex-wrap gap-2">
+                        {writings[0].categories.map((cat) => (
+                          <span
+                            key={cat}
+                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[0].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
+                          >
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="my-auto flex">
+                      <MaterialIcon
+                        icon="arrow_forward"
+                        className={`transition-colors ${writings[0].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
+                      />
+                    </div>
                   </div>
                 )}
-                <div className="mt-auto pt-6 flex justify-end">
-                  <MaterialIcon
-                    icon="arrow_forward"
-                    className={`transition-colors ${writings[1].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
-                  />
-                </div>
               </div>
             </div>
           </Card>
@@ -268,23 +272,27 @@ export default function WritingsSection() {
                 {writings[1].description}
               </p>
               {writings[1].categories.length > 0 && (
-                <div className="my-4 flex flex-wrap gap-2">
-                  {writings[1].categories.map((cat) => (
-                    <span
-                      key={cat}
-                      className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[1].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                    >
-                      {cat}
-                    </span>
-                  ))}
+                <div className="my-4 flex flex-wrap justify-between">
+                  {writings[1].categories.length > 0 && (
+                    <div className="my-4 flex flex-wrap gap-2">
+                      {writings[1].categories.map((cat) => (
+                        <span
+                          key={cat}
+                          className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[1].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <div className="my-auto flex">
+                    <MaterialIcon
+                      icon="arrow_forward"
+                      className={`transition-colors ${writings[1].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
+                    />
+                  </div>
                 </div>
               )}
-              <div className="mt-auto pt-6 flex justify-end">
-                <MaterialIcon
-                  icon="arrow_forward"
-                  className={`transition-colors ${writings[1].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
-                />
-              </div>
             </div>
           </Card>
           <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-3 md:row-start-2 md:row-span-2 flex flex-col justify-between min-h-[380px] md:min-h-0">
@@ -315,7 +323,7 @@ export default function WritingsSection() {
             href={writings[2].url}
             target="_blank"
             rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col justify-end min-h-[380px] md:min-h-[320px] overflow-hidden relative group"
+            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col justify-between min-h-[380px] md:min-h-[320px] overflow-hidden relative group"
           >
             {writings[2].image && (
               <div className="absolute inset-0 z-0">
@@ -347,22 +355,22 @@ export default function WritingsSection() {
                 </p>
                 {writings[2].categories.length > 0 && (
                   <div className="my-4 flex flex-wrap justify-between">
-                    {writings[0].categories.length > 0 && (
+                    {writings[2].categories.length > 0 && (
                       <div className="my-4 flex flex-wrap gap-2">
-                        {writings[0].categories.map((cat) => (
+                        {writings[2].categories.map((cat) => (
                           <span
                             key={cat}
-                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[0].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
+                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[2].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
                           >
                             {cat}
                           </span>
                         ))}
                       </div>
                     )}
-                    <div className="mt-auto pt-6 flex justify-end">
+                    <div className="my-auto flex">
                       <MaterialIcon
                         icon="arrow_forward"
-                        className={`transition-colors ${writings[1].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
+                        className={`transition-colors ${writings[2].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
                       />
                     </div>
                   </div>
