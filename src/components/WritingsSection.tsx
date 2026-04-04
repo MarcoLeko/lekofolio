@@ -79,7 +79,7 @@ function MobileProgressIndicator(props: {
 }
 
 export default function WritingsSection() {
-  const { data } = useQuery<Rss2JsonResponse>({
+  const { data, isPending } = useQuery<Rss2JsonResponse>({
     queryKey: ["medium-articles", mediumFeedUrl],
     queryFn: async () => {
       const response = await fetch(mediumApiUrl);
@@ -90,6 +90,23 @@ export default function WritingsSection() {
     },
     staleTime: 1000 * 60 * 10,
   });
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  if (isPending) {
+    return (
+      <section id="writings" className="bg-surface-container-low py-24">
+        <div className="mx-auto max-w-7xl px-8">
+          <h2 className="mb-16 font-headline text-[2rem] font-bold tracking-tight text-primary text-center md:text-left">
+            Writings & Talks
+          </h2>
+          <div className="flex justify-center items-center min-h-[380px]">
+            <div className="h-12 w-12 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const writings: Writing[] = (data?.items ?? [])
     .slice(0, 3)
@@ -107,8 +124,6 @@ export default function WritingsSection() {
           : "group-hover:text-secondary",
       url: article.link,
     }));
-
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const carouselItems = [
     cv.talks[0],
@@ -331,15 +346,19 @@ export default function WritingsSection() {
                   {writings[2].description}
                 </p>
                 {writings[2].categories.length > 0 && (
-                  <div className="my-4 flex flex-wrap gap-2">
-                    {writings[2].categories.map((cat) => (
-                      <span
-                        key={cat}
-                        className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[2].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                      >
-                        {cat}
-                      </span>
-                    ))}
+                  <div className="my-4 flex flex-wrap justify-between">
+                    {writings[0].categories.length > 0 && (
+                      <div className="my-4 flex flex-wrap gap-2">
+                        {writings[0].categories.map((cat) => (
+                          <span
+                            key={cat}
+                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[0].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
+                          >
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <div className="mt-auto pt-6 flex justify-end">
                       <MaterialIcon
                         icon="arrow_forward"
