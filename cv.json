@@ -131,20 +131,6 @@
       ]
     }
   ],
-  "projects": [
-    {
-      "name": "E-Commerce Platform",
-      "description": "Modern platform focused on performance, scalability, and user experience using micro-frontends and service-based architecture."
-    },
-    {
-      "name": "Automotive Web App",
-      "description": "Web application enabling remote control of vehicle functions via real-time communication."
-    },
-    {
-      "name": "Loyalty Platform",
-      "description": "Internal enterprise system supporting partner integrations, user engagement, and configurable business logic."
-    }
-  ],
   "talks": [
     {
       "title": "Working with Micro-Frontends after 2 Years in Production",

@@ -1,6 +1,7 @@
 import MaterialIcon from "./MaterialIcon";
 import { useQuery } from "@tanstack/react-query";
 import cv from "../../cv.json";
+import { Card } from "./Card";
 
 type Writing = {
   title: string;
@@ -81,90 +82,188 @@ export default function WritingsSection() {
     }));
 
   return (
-    <section id="writings" className="bg-surface-container-low py-24 md:py-32">
+    <section id="writings" className="bg-surface-container-low py-24">
       <div className="mx-auto max-w-7xl px-8">
-        <h2 className="mb-16 font-headline text-[1.75rem] font-bold tracking-tight text-primary">
-          Writings
+        <h2 className="mb-16 font-headline text-[2rem] font-bold tracking-tight text-primary text-center md:text-left">
+          Writings & Talks
         </h2>
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-          {writings.map((writing) => (
-            <a
-              key={writing.title}
-              href={writing.url}
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(220px,auto)]">
+          {cv.talks[0] && (
+            <Card className="md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between">
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
+                  Talk
+                </div>
+                <h3 className="mb-4 font-headline text-2xl font-bold text-primary leading-tight">
+                  {cv.talks[0].title}
+                </h3>
+                <p className="font-body text-sm text-on-surface-variant leading-relaxed">
+                  {cv.talks[0].event}
+                </p>
+              </div>
+              {cv.talks[0].video && (
+                <a
+                  href={cv.talks[0].video}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                >
+                  Watch Talk
+                  <MaterialIcon icon="play_circle" className="text-xl" />
+                </a>
+              )}
+            </Card>
+          )}
+
+          {writings[0] && (
+            <Card
+              href={writings[0].url}
               target="_blank"
               rel="noreferrer"
-              className={`group border-l-2 bg-surface-container-lowest p-8 shadow-card transition-all duration-300 hover:-translate-y-1 ${writing.accent}`}
+              className="md:col-start-2 md:col-span-2 md:row-start-1 flex flex-col sm:flex-row gap-8"
             >
-              <div className="mb-8 flex items-start justify-between">
+              <div className="flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="mb-2 font-headline text-2xl font-bold text-primary">
-                    {writing.title}
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-tertiary-container/30 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-tertiary-container">
+                    Article
+                  </div>
+                  <h3 className="mb-3 font-headline text-2xl font-bold text-primary group-hover:text-secondary transition-colors leading-tight">
+                    {writings[0].title}
                   </h3>
-                  {writing.categories.length > 0 && (
-                    <div className="mb-3 flex flex-wrap gap-2">
-                      {writing.categories.map((category) => (
+                  {writings[0].categories.length > 0 && (
+                    <div className="mb-4 flex flex-wrap gap-2">
+                      {writings[0].categories.map((cat) => (
                         <span
-                          key={`${writing.title}-${category}`}
+                          key={cat}
                           className="rounded-full bg-surface-container px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide text-on-surface-variant"
                         >
-                          {category}
+                          {cat}
                         </span>
                       ))}
                     </div>
                   )}
-                  {writing.image && (
-                    <img
-                      src={writing.image}
-                      className="rounded-2xl mb-4"
-                      height="24"
-                    />
-                  )}
-                  {writing.description && (
-                    <p className="font-body text-sm text-on-surface-variant">
-                      {writing.description}
-                    </p>
-                  )}
+                  <p className="font-body text-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                    {writings[0].description}
+                  </p>
                 </div>
+              </div>
+              {writings[0].image && (
+                <div className="w-full sm:w-48 h-48 shrink-0 overflow-hidden rounded-2xl">
+                  <img
+                    src={writings[0].image}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt=""
+                  />
+                </div>
+              )}
+            </Card>
+          )}
+
+          {writings[1] && (
+            <Card
+              href={writings[1].url}
+              target="_blank"
+              rel="noreferrer"
+              className="md:col-start-2 md:col-span-1 md:row-start-2 flex flex-col"
+            >
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-tertiary-container/30 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-tertiary-container self-start">
+                Article
+              </div>
+              <h3 className="mb-3 font-headline text-xl font-bold text-primary group-hover:text-secondary transition-colors line-clamp-4 leading-tight">
+                {writings[1].title}
+              </h3>
+              {writings[1].categories.length > 0 && (
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {writings[1].categories.map((cat) => (
+                    <span
+                      key={cat}
+                      className="rounded-full bg-surface-container px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide text-on-surface-variant"
+                    >
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+              )}
+              <div className="mt-auto pt-6 flex justify-end">
                 <MaterialIcon
-                  icon="open_in_new"
-                  className={`text-outline-variant transition-colors ${writing.iconAccent}`}
+                  icon="arrow_forward"
+                  className="text-outline-variant group-hover:text-secondary transition-colors"
                 />
               </div>
-              <div className="mt-8 h-1 w-16 bg-outline-variant/50" />
-            </a>
-          ))}
-        </div>
+            </Card>
+          )}
 
-        <div className="mt-20">
-          <h3 className="mb-8 font-headline text-xl font-bold text-primary">
-            Talks
-          </h3>
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            {cv.talks.map((talk) => (
-              <div
-                key={talk.title}
-                className="border-l-2 border-secondary-container bg-surface-container-lowest p-6"
-              >
-                <p className="font-headline text-lg font-bold text-primary">
-                  {talk.title}
+          {cv.talks[1] && (
+            <Card className="md:col-start-3 md:row-start-2 md:row-span-2 flex flex-col justify-between">
+              <div>
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
+                  Talk
+                </div>
+                <h3 className="mb-4 font-headline text-2xl font-bold text-primary leading-tight">
+                  {cv.talks[1].title}
+                </h3>
+                <p className="font-body text-sm text-on-surface-variant leading-relaxed">
+                  {cv.talks[1].event}
                 </p>
-                <p className="mt-1 font-body text-sm text-on-surface-variant">
-                  {talk.event}
-                </p>
-                {talk.video ? (
-                  <a
-                    href={talk.video}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-3 inline-flex items-center gap-2 font-label text-xs uppercase tracking-wide text-secondary hover:underline"
-                  >
-                    Watch Talk
-                    <MaterialIcon icon="open_in_new" className="text-base" />
-                  </a>
-                ) : null}
               </div>
-            ))}
-          </div>
+              {cv.talks[1].video && (
+                <a
+                  href={cv.talks[1].video}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                >
+                  Watch Talk
+                  <MaterialIcon icon="play_circle" className="text-xl" />
+                </a>
+              )}
+            </Card>
+          )}
+
+          {writings[2] && (
+            <Card
+              href={writings[2].url}
+              target="_blank"
+              rel="noreferrer"
+              className="md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col sm:flex-row gap-8"
+            >
+              <div className="flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-tertiary-container/30 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-tertiary-container">
+                    Article
+                  </div>
+                  <h3 className="mb-3 font-headline text-2xl font-bold text-primary group-hover:text-secondary transition-colors leading-tight">
+                    {writings[2].title}
+                  </h3>
+                  {writings[2].categories.length > 0 && (
+                    <div className="mb-4 flex flex-wrap gap-2">
+                      {writings[2].categories.map((cat) => (
+                        <span
+                          key={cat}
+                          className="rounded-full bg-surface-container px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide text-on-surface-variant"
+                        >
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="font-body text-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                    {writings[2].description}
+                  </p>
+                </div>
+              </div>
+              {writings[2].image && (
+                <div className="w-full sm:w-48 h-48 shrink-0 overflow-hidden rounded-2xl">
+                  <img
+                    src={writings[2].image}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt=""
+                  />
+                </div>
+              )}
+            </Card>
+          )}
         </div>
       </div>
     </section>
