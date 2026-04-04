@@ -40,8 +40,8 @@ function DesktopTimeline({
               <div
                 className={`absolute left-1/2 top-1 h-2 w-2 -translate-x-1/2 rounded-full ring-2 ring-surface transition-all duration-300 ${
                   isActive
-                    ? "bg-primary scale-150 ring-primary/20 shadow-lg"
-                    : "bg-outline-variant/50"
+                    ? "bg-primary/75 scale-150 ring-primary/20 shadow-lg"
+                    : "bg-outline-variant/75"
                 }`}
               />
 
@@ -126,10 +126,10 @@ function MobileTimeline({
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div
-                className={`absolute left-[11px] top-1.5 h-3 w-3 -translate-x-1/2 rounded-full ring-4 ring-surface transition-all duration-300 ${
+                className={`absolute left-[12px] top-1 h-2 w-2 -translate-x-1/2 rounded-full ring-2 ring-surface transition-all duration-300 ${
                   isActive
-                    ? "bg-primary scale-125 ring-primary/20 shadow-lg"
-                    : "bg-outline-variant/50"
+                    ? "bg-primary/75 scale-125 ring-primary/20 shadow-lg"
+                    : "bg-outline-variant/75"
                 }`}
               />
 

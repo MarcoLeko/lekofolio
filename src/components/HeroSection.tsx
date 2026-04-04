@@ -5,6 +5,7 @@ import GitHubLogo from "../assets/GitHub.svg?react";
 import LeetcodeLogo from "../assets/Leetcode.svg?react";
 import MediumLogo from "../assets/Medium.svg?react";
 import type { ComponentType, SVGProps } from "react";
+import { navItems } from "../consts/navItems.ts";
 
 type SocialPlatform = "LinkedIn" | "GitHub" | "Medium" | "LeetCode";
 
@@ -44,10 +45,21 @@ const socials: SocialViewModel[] = (cv.socials as SocialItem[]).map((s) => ({
 
 export default function HeroSection() {
   return (
-    <header className="relative flex min-h-[619px] items-center overflow-hidden py-24">
+    <header className="relative flex flex-col min-h-[680px] items-center overflow-hidden md:py-24 pb-24">
+      <div className="flex flex-wrap gap-3 mb-8 md:hidden pt-4 pb-8">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className="rounded-full bg-primary/10 px-3 py-2 font-label text-xs font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
       <div className="blob-bg absolute left-1/4 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="pointer-events-none absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage:
             "linear-gradient(#1e1b4b 1px, transparent 1px), linear-gradient(90deg, #1e1b4b 1px, transparent 1px)",
@@ -55,7 +67,7 @@ export default function HeroSection() {
         }}
       />
 
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-8 lg:grid-cols-12">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-8 lg:grid-cols-12">
         <div className="flex flex-col justify-center lg:col-span-7">
           <p className="max-w-xl py-2 font-body text-lg leading-relaxed">
             {cv.personal.title}
@@ -110,6 +122,39 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      <section
+        className="py-16 bg-surface relative overflow-hidden"
+        id="philosophy"
+      >
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] blob-bg opacity-20 -z-10 translate-x-1/3 translate-y-1/3"></div>
+        <div className="absolute inset-0 -z-20 opacity-[0.02] grid-pattern"></div>
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex items-center gap-4 my-8">
+            <h2 className="font-headline text-[1.75rem] font-bold text-primary tracking-tight">
+              Working Philosophy
+            </h2>
+            <div className="h-px flex-grow bg-outline-variant/30"></div>
+          </div>
+          <div className="flex flex-col gap-8 items-start">
+            <div className="space-y-2">
+              <p className="text-on-surface text-xl leading-relaxed font-medium">
+                {cv.hero.philosophy}
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                {cv.hero.philosophySubline}
+              </p>
+            </div>
+            <div>
+              <button className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 rounded hover:bg-primary hover:text-on-primary transition-all duration-300 font-headline font-bold text-sm">
+                <span className="material-symbols-outlined text-base">
+                  download
+                </span>
+                Download Full CV
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </header>
   );
 }

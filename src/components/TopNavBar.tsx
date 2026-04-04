@@ -1,11 +1,6 @@
 import type { MouseEvent } from "react";
 import cv from "../../cv.json";
-
-const navItems = [
-  { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
-  { href: "#writings", label: "Writings" },
-];
+import { navItems } from "../consts/navItems.ts";
 
 export default function TopNavBar() {
   const handleScrollTopClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -22,14 +17,17 @@ export default function TopNavBar() {
         <a
           href="/"
           aria-label="Go to homepage"
-          className="mt-[24px] self-start flex flex-col items-center"
+          className="mt-[24px] self-start flex  flex-nowrap items-center"
           onClick={handleScrollTopClick}
         >
+          <span className="mr-1 text-xl font-headline tracking-tighter text-indigo-950">
+            Hi I'm
+          </span>
           <span className="text-xl font-headline font-extrabold tracking-tighter text-indigo-950">
-            {cv.personal.name}
+            {cv.personal.name.split(" ").at(0)} 👋
           </span>
         </a>
-        <div className="items-center gap-4 md:gap-8 flex">
+        <div className="hidden md:flex items-center gap-4 md:gap-8">
           {navItems.map((item) => (
             <a
               key={item.href}

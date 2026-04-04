@@ -21,8 +21,10 @@
     ]
   },
   "hero": {
-    "headline": "I care about the details that make software succeed.",
-    "subline": "From smooth go-lives to efficient, high-performance systems - I focus on what actually matters in production and refine until it works the way it should."
+    "headline": "I care about the details to make software succeed.",
+    "subline": "Specialized in building distributed service architecture that powers at DACH-region-scale. With +7 years of experience across different market sectors, I bridge the gap between white paper drawings and production-ready code.",
+    "philosophy": "Scope, Architect, Defend - Repeat.",
+    "philosophySubline": "From raw requirements to drawing the boxes, I build durable solutions designed to survive the happy paths, the bad ones, and the weird edge cases. I have zero interest in corporate politics; instead, I surround myself with pragmatists who balance technical excellence with a drive to get things done."
   },
   "about": {
     "description": "I build software with real-world constraints in mind, with a strong focus on detail to ensure smooth and predictable go-lives. I care about the small things that make systems reliable in production. I'm naturally curious about efficient and high-performance solutions and enjoy refining systems until they truly hold up in practice.",
@@ -92,7 +94,7 @@
       "period": "2024 - Present",
       "highlights": [
         "Cut CI/CD pipeline runtime by 50% (20 → 10 min) through Docker optimization, layer caching, and streamlined build steps",
-        "Led migration of ~32k products from legacy system to new platform with zero downtime, enabling smooth onboarding of a new brand",
+        "Migrated ~32k products from legacy system to new platform with zero downtime, enabling smooth onboarding of a new brand",
         "Implemented faceted search for 60k products using Algolia, improving discoverability and increasing add-to-cart rates"
       ]
     },

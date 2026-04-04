@@ -104,10 +104,8 @@ html {
     radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.15), transparent 40%),
     linear-gradient(
             135deg,
-            #ff6f91,
-            #7c7bff,
-            #9b6bff,
-            #b06ab3
+            var(--color-primary),
+            var(--color-secondary)
     );
     display: flex;
     align-items: center;
