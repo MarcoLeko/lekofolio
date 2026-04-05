@@ -6,7 +6,6 @@ import GitHubLogo from "../assets/GitHub.svg?react";
 import LeetcodeLogo from "../assets/Leetcode.svg?react";
 import MediumLogo from "../assets/Medium.svg?react";
 import type { ComponentType, SVGProps } from "react";
-import { navItems } from "../consts/navItems.ts";
 
 type SocialPlatform = "LinkedIn" | "GitHub" | "Medium" | "LeetCode";
 
@@ -47,22 +46,9 @@ const socials: SocialViewModel[] = (cv.socials as SocialItem[]).map((s) => ({
 export default function HeroSection() {
   return (
     <header className="relative flex flex-col min-h-[680px] items-center overflow-hidden md:py-24 py-16">
-      <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center pointer-events-none md:hidden">
-        <div className="flex flex-wrap gap-2 rounded-full bg-surface/90 p-2 backdrop-blur-md shadow-2xl border border-outline-variant/20 pointer-events-auto">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-full bg-primary/10 px-4 py-2 font-label text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </div>
       <div className="blob-bg absolute left-1/4 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.02]"
+        className="pointer-events-none absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage:
             "linear-gradient(#1e1b4b 1px, transparent 1px), linear-gradient(90deg, #1e1b4b 1px, transparent 1px)",
