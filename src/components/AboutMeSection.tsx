@@ -61,8 +61,12 @@ export default function AboutMeSection() {
           <h2 className="font-headline text-[2.5rem] font-extrabold text-primary tracking-tight">
             User Manual: Debugging Me
           </h2>
-          <h2 className="font-headline text-[1.75rem] font-bold text-secondary tracking-tight">
-            7 Reasons on how to upset me
+          <h2 className="font-headline text-[1.75rem] font-bold text-secondary tracking-tight mt-2">
+            7 Reasons on how to{" "}
+            <span className="underline text-secondary decoration-4 underline-offset-4">
+              upset
+            </span>{" "}
+            me
           </h2>
         </div>
         <Carousel
