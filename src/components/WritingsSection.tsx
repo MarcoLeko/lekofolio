@@ -2,7 +2,7 @@ import MaterialIcon from "./MaterialIcon";
 import { useQuery } from "@tanstack/react-query";
 import cv from "../../cv.json";
 import { Card } from "./Card";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 type Writing = {
   title: string;
@@ -62,16 +62,19 @@ function stripImageFromHtml(html: string): string {
 function MobileProgressIndicator(props: {
   carouselItems: (Talk | Writing)[];
   activeIndex: number;
+  onDotClick: (index: number) => void;
 }) {
   return (
     <div className="mt-4 flex justify-center gap-2 md:hidden">
       {props.carouselItems.map((_, i) => (
-        <div
+        <button
           key={i}
-          className={`h-1.5 rounded-full transition-all duration-300 ${
+          onClick={() => props.onDotClick(i)}
+          aria-label={`Go to slide ${i + 1}`}
+          className={`h-1.5 cursor-pointer rounded-full transition-all duration-300 ${
             i === props.activeIndex
               ? "w-8 bg-primary"
-              : "w-4 bg-outline-variant/30"
+              : "w-4 bg-outline-variant/30 hover:bg-outline-variant/50"
           }`}
         />
       ))}
@@ -93,6 +96,7 @@ export default function WritingsSection() {
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   if (isPending) {
     return (
@@ -145,6 +149,20 @@ export default function WritingsSection() {
     }
   };
 
+  const scrollToCard = (index: number) => {
+    if (!carouselRef.current) return;
+    const container = carouselRef.current;
+    const cardWidth = (container.firstChild as HTMLElement)?.clientWidth || 0;
+    if (cardWidth > 0) {
+      const gap = 24;
+      container.scrollTo({
+        left: index * (cardWidth + gap),
+        behavior: "smooth",
+      });
+      setActiveIndex(index);
+    }
+  };
+
   return (
     <section id="writings" className="bg-surface-container-low md:py-24 py-16">
       <div className="mx-auto max-w-7xl px-8">
@@ -153,6 +171,7 @@ export default function WritingsSection() {
         </h2>
 
         <div
+          ref={carouselRef}
           className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-8 px-8 scroll-pl-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] md:overflow-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] overscroll-x-contain"
           onScroll={handleScroll}
           style={{ WebkitOverflowScrolling: "touch" }}
@@ -387,6 +406,7 @@ export default function WritingsSection() {
         <MobileProgressIndicator
           carouselItems={carouselItems}
           activeIndex={activeIndex}
+          onDotClick={scrollToCard}
         />
       </div>
     </section>
