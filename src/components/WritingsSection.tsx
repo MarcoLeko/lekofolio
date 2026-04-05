@@ -176,7 +176,7 @@ export default function WritingsSection() {
           onScroll={handleScroll}
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between min-h-[380px] md:min-h-0">
+          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0">
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
                 Talk
@@ -191,7 +191,7 @@ export default function WritingsSection() {
             {cv.talks[0].image && (
               <img
                 src={cv.talks[0].image}
-                className="h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                className="max-h-[320px] h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
                 alt=""
               />
             )}
@@ -200,7 +200,7 @@ export default function WritingsSection() {
             href={writings[0].url}
             target="_blank"
             rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-2 md:row-start-1 flex flex-col justify-end min-h-[380px] md:min-h-[320px] overflow-hidden relative group"
+            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-2 md:row-start-1 flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
           >
             {writings[0].image && (
               <div className="absolute inset-0 z-0">
@@ -259,7 +259,7 @@ export default function WritingsSection() {
             href={writings[1].url}
             target="_blank"
             rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-1 md:row-start-2 flex flex-col justify-end min-h-[380px] md:min-h-[320px] overflow-hidden relative group"
+            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-1 md:row-start-2 flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
           >
             {writings[1].image && (
               <div className="absolute inset-0 z-0">
@@ -312,7 +312,7 @@ export default function WritingsSection() {
               )}
             </div>
           </Card>
-          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-3 md:row-start-2 md:row-span-2 flex flex-col justify-between min-h-[380px] md:min-h-0">
+          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-3 md:row-start-2 md:row-span-2 flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0">
             <div>
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
                 Talk
@@ -338,7 +338,7 @@ export default function WritingsSection() {
             {cv.talks[1].image && (
               <img
                 src={cv.talks[1].image}
-                className="h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                className="max-h-[320px] h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
                 alt=""
               />
             )}
@@ -347,7 +347,7 @@ export default function WritingsSection() {
             href={writings[2].url}
             target="_blank"
             rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col justify-between min-h-[380px] md:min-h-[320px] overflow-hidden relative group"
+            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col justify-between min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
           >
             {writings[2].image && (
               <div className="absolute inset-0 z-0">
