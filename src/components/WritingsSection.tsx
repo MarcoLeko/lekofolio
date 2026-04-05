@@ -212,7 +212,7 @@ export default function WritingsSection() {
                   {writings[0].description}
                 </p>
                 {writings[0].categories.length > 0 && (
-                  <div className="my-4 flex flex-wrap justify-between">
+                  <div className="my-4 flex justify-between">
                     {writings[0].categories.length > 0 && (
                       <div className="my-4 flex flex-wrap gap-2">
                         {writings[0].categories.map((cat) => (
@@ -270,7 +270,7 @@ export default function WritingsSection() {
                 {writings[1].description}
               </p>
               {writings[1].categories.length > 0 && (
-                <div className="my-4 flex flex-wrap justify-between">
+                <div className="my-4 flex justify-between">
                   {writings[1].categories.length > 0 && (
                     <div className="my-4 flex flex-wrap gap-2">
                       {writings[1].categories.map((cat) => (
@@ -359,7 +359,7 @@ export default function WritingsSection() {
                   {writings[2].description}
                 </p>
                 {writings[2].categories.length > 0 && (
-                  <div className="my-4 flex flex-wrap justify-between">
+                  <div className="my-4 flex justify-between">
                     {writings[2].categories.length > 0 && (
                       <div className="my-4 flex flex-wrap gap-2">
                         {writings[2].categories.map((cat) => (
