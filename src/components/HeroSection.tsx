@@ -46,17 +46,19 @@ const socials: SocialViewModel[] = (cv.socials as SocialItem[]).map((s) => ({
 
 export default function HeroSection() {
   return (
-    <header className="relative flex flex-col min-h-[680px] items-center overflow-hidden md:py-24 pb-24">
-      <div className="flex flex-wrap gap-3 mb-8 md:hidden pt-4 pb-8">
-        {navItems.map((item) => (
-          <a
-            key={item.href}
-            href={item.href}
-            className="rounded-full bg-primary/10 px-3 py-2 font-label text-xs font-bold text-primary transition-colors hover:bg-primary hover:text-white"
-          >
-            {item.label}
-          </a>
-        ))}
+    <header className="relative flex flex-col min-h-[680px] items-center overflow-hidden md:py-24 py-16">
+      <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center pointer-events-none md:hidden">
+        <div className="flex flex-wrap gap-2 rounded-full bg-surface/90 p-2 backdrop-blur-md shadow-2xl border border-outline-variant/20 pointer-events-auto">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-full bg-primary/10 px-4 py-2 font-label text-sm font-bold text-primary transition-colors hover:bg-primary hover:text-white"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
       </div>
       <div className="blob-bg absolute left-1/4 top-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
       <div
@@ -124,7 +126,7 @@ export default function HeroSection() {
         </div>
       </div>
       <section
-        className="py-16 bg-surface relative overflow-hidden"
+        className="pt-16 bg-surface relative overflow-hidden"
         id="philosophy"
       >
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] blob-bg opacity-20 -z-10 translate-x-1/3 translate-y-1/3"></div>
@@ -146,8 +148,8 @@ export default function HeroSection() {
               </p>
             </div>
             <div>
-              <a 
-                href={cvPdfUrl} 
+              <a
+                href={cvPdfUrl}
                 download="Marco_Leko_CV.pdf"
                 className="inline-flex items-center gap-2 border border-primary text-primary px-5 py-2.5 rounded hover:bg-primary hover:text-on-primary transition-all duration-300 font-headline font-bold text-sm"
               >

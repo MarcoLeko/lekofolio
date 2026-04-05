@@ -14,7 +14,7 @@ const education: EducationItem[] = cv.education.map((item) => ({
 
 export default function EducationSection() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-surface md:py-24 py-16">
       <div className="mx-auto max-w-7xl px-8">
         <div className="flex flex-col justify-between gap-8 border-t border-outline-variant/20 pt-16 md:flex-row md:items-center">
           <h2 className="font-headline text-sm font-bold uppercase tracking-[0.2em] text-primary">

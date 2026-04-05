@@ -57,7 +57,7 @@ const categories: SkillCategory[] = [
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="bg-surface py-24">
+    <section id="skills" className="bg-surface md:py-24 py-16">
       <div className="mx-auto max-w-7xl px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
           {categories.map((category) => (

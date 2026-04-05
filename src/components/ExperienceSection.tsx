@@ -166,7 +166,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="relative overflow-hidden bg-surface-container-low py-24"
+      className="relative overflow-hidden bg-surface-container-low md:py-24 py-16"
     >
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
 

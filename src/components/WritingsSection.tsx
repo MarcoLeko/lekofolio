@@ -146,7 +146,7 @@ export default function WritingsSection() {
   };
 
   return (
-    <section id="writings" className="bg-surface-container-low py-24">
+    <section id="writings" className="bg-surface-container-low md:py-24 py-16">
       <div className="mx-auto max-w-7xl px-8">
         <h2 className="mb-16 font-headline text-[2rem] font-bold tracking-tight text-primary text-center md:text-left">
           Writings & Talks
