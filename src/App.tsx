@@ -5,8 +5,8 @@ import SkillsSection from "./components/SkillsSection";
 import WritingsSection from "./components/WritingsSection.tsx";
 import EducationSection from "./components/EducationSection";
 import Footer from "./components/Footer";
-import AboutMeSection from "./components/AboutMe.tsx";
 import { BottomNavigationBar } from "./components/BottomNavigationBar.tsx";
+import AboutMeSection from "./components/AboutMeSection.tsx";
 
 export default function App() {
   return (

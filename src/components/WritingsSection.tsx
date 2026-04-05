@@ -5,6 +5,13 @@ import { Card } from "./Card";
 
 import { Carousel } from "./Carousel";
 
+type Talk = {
+  title: string;
+  event: string;
+  video?: string;
+  image?: string;
+};
+
 type Writing = {
   title: string;
   image: string;
@@ -98,13 +105,37 @@ export default function WritingsSection() {
       url: article.link,
     }));
 
-  const carouselItems = [
-    cv.talks[0],
-    writings[0],
-    writings[1],
-    cv.talks[1],
-    writings[2],
-  ].filter(Boolean);
+  const carouselItems: Array<{
+    type: string;
+    data: Writing | Talk;
+    gridClass: string;
+  }> = [
+    {
+      type: "talk",
+      data: cv.talks[0],
+      gridClass: "md:col-start-1 md:row-start-1 md:row-span-2",
+    },
+    {
+      type: "writing",
+      data: writings[0],
+      gridClass: "md:col-start-2 md:col-span-2 md:row-start-1",
+    },
+    {
+      type: "writing",
+      data: writings[1],
+      gridClass: "md:col-start-2 md:col-span-1 md:row-start-2",
+    },
+    {
+      type: "talk",
+      data: cv.talks[1],
+      gridClass: "md:col-start-3 md:row-start-2 md:row-span-2",
+    },
+    {
+      type: "writing",
+      data: writings[2],
+      gridClass: "md:col-start-1 md:col-span-2 md:row-start-3",
+    },
+  ].filter((item) => item.data);
 
   return (
     <section id="writings" className="bg-surface-container-low md:py-24 py-16">
@@ -117,232 +148,109 @@ export default function WritingsSection() {
           itemCount={carouselItems.length}
           className="gap-6 pb-8 -mx-8 px-8 scroll-pl-8 md:mx-0 md:px-0 md:grid md:grid-cols-3 md:auto-rows-[minmax(220px,auto)] md:overflow-visible md:pb-0"
         >
-          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:row-start-1 md:row-span-2 flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
-                Talk
-              </div>
-              <h3 className="mb-4 font-headline text-2xl font-bold text-primary leading-tight">
-                {cv.talks[0].title}
-              </h3>
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                {cv.talks[0].event}
-              </p>
-            </div>
-            {cv.talks[0].image && (
-              <img
-                src={cv.talks[0].image}
-                className="max-h-[320px] h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
-                alt=""
-              />
-            )}
-          </Card>
-          <Card
-            href={writings[0].url}
-            target="_blank"
-            rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-2 md:row-start-1 flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
-          >
-            {writings[0].image && (
-              <div className="absolute inset-0 z-0">
-                <img
-                  src={writings[0].image}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt=""
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              </div>
-            )}
-
-            <div className="relative z-10 flex-1 flex flex-col justify-end h-full">
-              <div>
-                <div
-                  className={`mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 font-label text-xs font-bold uppercase tracking-widest ${writings[0].image ? "bg-white/20 text-white backdrop-blur-md" : "bg-tertiary-container/30 text-on-tertiary-container"}`}
+          {carouselItems.map((item, index: number) => {
+            if (item.type === "talk") {
+              const talk = item.data as (typeof cv.talks)[0];
+              return (
+                <Card
+                  key={`talk-${index}`}
+                  className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0 ${item.gridClass}`}
                 >
-                  Article
-                </div>
-                <h3
-                  className={`mb-3 font-headline text-2xl font-bold transition-colors leading-tight ${writings[0].image ? "text-white group-hover:text-white/80" : "text-primary group-hover:text-secondary"}`}
-                >
-                  {writings[0].title}
-                </h3>
-                <p
-                  className={`font-body text-sm line-clamp-2 leading-relaxed ${writings[0].image ? "text-white/80" : "text-on-surface-variant"}`}
-                >
-                  {writings[0].description}
-                </p>
-                {writings[0].categories.length > 0 && (
-                  <div className="my-4 flex justify-between">
-                    {writings[0].categories.length > 0 && (
-                      <div className="my-4 flex flex-wrap gap-2">
-                        {writings[0].categories.map((cat) => (
-                          <span
-                            key={cat}
-                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[0].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <div className="my-auto flex">
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        className={`transition-colors ${writings[0].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
-                      />
+                  <div>
+                    <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
+                      Talk
                     </div>
+                    <h3 className="mb-4 font-headline text-2xl font-bold text-primary leading-tight">
+                      {talk.title}
+                    </h3>
+                    <p className="font-body text-sm text-on-surface-variant leading-relaxed">
+                      {talk.event}
+                    </p>
                   </div>
-                )}
-              </div>
-            </div>
-          </Card>
-          <Card
-            href={writings[1].url}
-            target="_blank"
-            rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-2 md:col-span-1 md:row-start-2 flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
-          >
-            {writings[1].image && (
-              <div className="absolute inset-0 z-0">
-                <img
-                  src={writings[1].image}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt=""
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              </div>
-            )}
-
-            <div className="relative z-10 flex-1 flex flex-col justify-end h-full">
-              <div
-                className={`mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 font-label text-xs font-bold uppercase tracking-widest self-start ${writings[1].image ? "bg-white/20 text-white backdrop-blur-md" : "bg-tertiary-container/30 text-on-tertiary-container"}`}
-              >
-                Article
-              </div>
-              <h3
-                className={`mb-3 font-headline text-xl font-bold transition-colors line-clamp-4 leading-tight ${writings[1].image ? "text-white group-hover:text-white/80" : "text-primary group-hover:text-secondary"}`}
-              >
-                {writings[1].title}
-              </h3>
-              <p
-                className={`font-body text-sm line-clamp-2 leading-relaxed ${writings[0].image ? "text-white/80" : "text-on-surface-variant"}`}
-              >
-                {writings[1].description}
-              </p>
-              {writings[1].categories.length > 0 && (
-                <div className="my-4 flex justify-between">
-                  {writings[1].categories.length > 0 && (
-                    <div className="my-4 flex flex-wrap gap-2">
-                      {writings[1].categories.map((cat) => (
-                        <span
-                          key={cat}
-                          className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[1].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                        >
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
+                  {talk.video && (
+                    <a
+                      href={talk.video}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-4 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                    >
+                      Watch Talk
+                      <MaterialIcon icon="play_circle" className="text-xl" />
+                    </a>
                   )}
-                  <div className="my-auto flex">
-                    <MaterialIcon
-                      icon="arrow_forward"
-                      className={`transition-colors ${writings[1].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
+                  {talk.image && (
+                    <img
+                      src={talk.image}
+                      className="max-h-[320px] h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                      alt=""
                     />
-                  </div>
-                </div>
-              )}
-            </div>
-          </Card>
-          <Card className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-3 md:row-start-2 md:row-span-2 flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
-                Talk
-              </div>
-              <h3 className="mb-4 font-headline text-2xl font-bold text-primary leading-tight">
-                {cv.talks[1].title}
-              </h3>
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">
-                {cv.talks[1].event}
-              </p>
-            </div>
-            {cv.talks[1].video && (
-              <a
-                href={cv.talks[1].video}
+                  )}
+                </Card>
+              );
+            }
+
+            const writing = item.data as Writing;
+            return (
+              <Card
+                key={`writing-${index}`}
+                href={writing.url}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 font-label text-sm font-bold uppercase tracking-wide text-secondary hover:text-primary transition-colors"
+                className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group ${item.gridClass}`}
               >
-                Watch Talk
-                <MaterialIcon icon="play_circle" className="text-xl" />
-              </a>
-            )}
-            {cv.talks[1].image && (
-              <img
-                src={cv.talks[1].image}
-                className="max-h-[320px] h-100 mt-4 rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
-                alt=""
-              />
-            )}
-          </Card>
-          <Card
-            href={writings[2].url}
-            target="_blank"
-            rel="noreferrer"
-            className="w-[85vw] shrink-0 snap-start md:w-auto md:shrink md:col-start-1 md:col-span-2 md:row-start-3 flex flex-col justify-between min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group"
-          >
-            {writings[2].image && (
-              <div className="absolute inset-0 z-0">
-                <img
-                  src={writings[2].image}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt=""
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-              </div>
-            )}
-
-            <div className="relative z-10 flex-1 flex flex-col justify-end h-full">
-              <div>
-                <div
-                  className={`mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 font-label text-xs font-bold uppercase tracking-widest ${writings[2].image ? "bg-white/20 text-white backdrop-blur-md" : "bg-tertiary-container/30 text-on-tertiary-container"}`}
-                >
-                  Article
-                </div>
-                <h3
-                  className={`mb-3 font-headline text-2xl font-bold transition-colors leading-tight ${writings[2].image ? "text-white group-hover:text-white/80" : "text-primary group-hover:text-secondary"}`}
-                >
-                  {writings[2].title}
-                </h3>
-                <p
-                  className={`font-body text-sm line-clamp-2 leading-relaxed ${writings[2].image ? "text-white/80" : "text-on-surface-variant"}`}
-                >
-                  {writings[2].description}
-                </p>
-                {writings[2].categories.length > 0 && (
-                  <div className="my-4 flex justify-between">
-                    {writings[2].categories.length > 0 && (
-                      <div className="my-4 flex flex-wrap gap-2">
-                        {writings[2].categories.map((cat) => (
-                          <span
-                            key={cat}
-                            className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writings[2].image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                    <div className="my-auto flex">
-                      <MaterialIcon
-                        icon="arrow_forward"
-                        className={`transition-colors ${writings[2].image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
-                      />
-                    </div>
+                {writing.image && (
+                  <div className="absolute inset-0 z-0">
+                    <img
+                      src={writing.image}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      alt=""
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                   </div>
                 )}
-              </div>
-            </div>
-          </Card>
+
+                <div className="relative z-10 flex-1 flex flex-col justify-end h-full">
+                  <div>
+                    <div
+                      className={`mb-6 inline-flex items-center gap-2 rounded-full px-3 py-1 font-label text-xs font-bold uppercase tracking-widest ${writing.image ? "bg-white/20 text-white backdrop-blur-md" : "bg-tertiary-container/30 text-on-tertiary-container"}`}
+                    >
+                      Article
+                    </div>
+                    <h3
+                      className={`mb-3 font-headline text-2xl font-bold transition-colors leading-tight ${writing.image ? "text-white group-hover:text-white/80" : "text-primary group-hover:text-secondary"}`}
+                    >
+                      {writing.title}
+                    </h3>
+                    <p
+                      className={`font-body text-sm line-clamp-2 leading-relaxed ${writing.image ? "text-white/80" : "text-on-surface-variant"}`}
+                    >
+                      {writing.description}
+                    </p>
+                    {writing.categories.length > 0 && (
+                      <div className="my-4 flex justify-between">
+                        <div className="my-4 flex flex-wrap gap-2">
+                          {writing.categories.map((cat) => (
+                            <span
+                              key={cat}
+                              className={`rounded-full px-2.5 py-1 font-label text-[0.65rem] uppercase tracking-wide ${writing.image ? "bg-white/20 text-white/90 backdrop-blur-md" : "bg-surface-container text-on-surface-variant"}`}
+                            >
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="my-auto flex">
+                          <MaterialIcon
+                            icon="arrow_forward"
+                            className={`transition-colors ${writing.image ? "text-white/70 group-hover:text-white" : "text-outline-variant group-hover:text-secondary"}`}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Card>
+            );
+          })}
         </Carousel>
       </div>
     </section>
