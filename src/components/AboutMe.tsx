@@ -1,3 +1,5 @@
+import { Carousel } from "./Carousel";
+
 export default function AboutMeSection() {
   return (
     <section
@@ -15,11 +17,14 @@ export default function AboutMeSection() {
             User Manual: Debugging Me
           </h2>
           <h2 className="font-headline text-[1.75rem] font-bold text-secondary tracking-tight">
-            8 Reasons on how to upset me
+            7 Reasons on how to upset me
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+        <Carousel
+          itemCount={7}
+          className="gap-4 pb-8 -mx-8 px-8 scroll-pl-8 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:pb-0"
+        >
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               restaurant
             </span>
@@ -31,7 +36,7 @@ export default function AboutMeSection() {
               crossing the line.
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               running_with_errors
             </span>
@@ -43,7 +48,7 @@ export default function AboutMeSection() {
               all.
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               emoji_events
             </span>
@@ -54,7 +59,7 @@ export default function AboutMeSection() {
               Being unnecessarily cocky when winning. Unless they deserve it. 😄
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               gavel
             </span>
@@ -66,7 +71,7 @@ export default function AboutMeSection() {
               game but kills people's right intentions.
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               favorite
             </span>
@@ -77,7 +82,7 @@ export default function AboutMeSection() {
               Not being empathic. Systems are built for humans, by humans.
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               handshake
             </span>
@@ -89,7 +94,7 @@ export default function AboutMeSection() {
               to people too.
             </p>
           </div>
-          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors lg:col-span-2">
+          <div className="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/20 hover:border-secondary/40 transition-colors lg:col-span-2 w-[85vw] shrink-0 snap-start sm:w-auto sm:shrink">
             <span className="material-symbols-outlined text-secondary mb-4 opacity-70">
               music_note
             </span>
@@ -101,7 +106,7 @@ export default function AboutMeSection() {
               objective.
             </p>
           </div>
-        </div>
+        </Carousel>
       </div>
     </section>
   );
