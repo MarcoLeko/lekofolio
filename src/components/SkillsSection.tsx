@@ -14,10 +14,9 @@ type SkillCategory = {
 };
 
 const levelTierClassMap: Record<string, string> = {
-  deep: "bg-tertiary-container text-on-tertiary-container",
+  deep: "bg-secondary-fixed text-on-secondary-fixed",
   advanced: "bg-secondary-container text-on-secondary",
   intermediate: "bg-secondary-fixed text-on-secondary-fixed",
-  beginner: "bg-surface-container-high text-on-surface-variant",
   basic: "bg-surface-container-high text-on-surface-variant",
 };
 
