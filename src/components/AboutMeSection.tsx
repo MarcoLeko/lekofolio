@@ -2,12 +2,6 @@ import { Carousel } from "./Carousel";
 
 const aboutMeItems = [
   {
-    icon: "restaurant",
-    title: "Cuisine Standards",
-    description:
-      "Talking sh*t about the Italian/Bavarian cuisine. Some things are crossing the line.",
-  },
-  {
     icon: "running_with_errors",
     title: "Commitment Levels",
     description:
@@ -23,7 +17,7 @@ const aboutMeItems = [
     icon: "gavel",
     title: "Fair Play",
     description:
-      "People taking advantage and behaving unfairly. It's part of the game but kills people's right intentions.",
+      "Opportunists and behaving unfairly. It's part of the game but kills people's right intentions.",
   },
   {
     icon: "favorite",
@@ -35,6 +29,12 @@ const aboutMeItems = [
     title: "Reliability Factor",
     description:
       "Not being able to count on someone. High percentage uptime applies to people, too.",
+  },
+  {
+    icon: "restaurant",
+    title: "Cuisine Standards",
+    description:
+      "Talking sh*t about the Italian/Bavarian cuisine. Some things are crossing the line.",
   },
   {
     icon: "music_note",

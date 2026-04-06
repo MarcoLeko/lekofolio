@@ -21,7 +21,7 @@ export default function TopNavBar() {
           onClick={handleScrollTopClick}
         >
           <span className="mr-1 text-xl font-headline tracking-tighter text-indigo-950">
-            Hi I'm
+            Hej, I'm
           </span>
           <span className="text-xl font-headline font-extrabold tracking-tighter text-indigo-950">
             {cv.personal.name.split(" ").at(0)} 👋

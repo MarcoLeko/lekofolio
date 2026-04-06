@@ -5,7 +5,7 @@ import SkillsSection from "./components/SkillsSection";
 import WritingsSection from "./components/WritingsSection.tsx";
 import EducationSection from "./components/EducationSection";
 import Footer from "./components/Footer";
-import { BottomNavigationBar } from "./components/BottomNavigationBar.tsx";
+import { BottomNavBar } from "./components/BottomNavBar.tsx";
 import AboutMeSection from "./components/AboutMeSection.tsx";
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
       <AboutMeSection />
       <EducationSection />
       <Footer />
-      <BottomNavigationBar />
+      <BottomNavBar />
     </div>
   );
 }

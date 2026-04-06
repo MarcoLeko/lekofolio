@@ -154,7 +154,7 @@ export default function WritingsSection() {
               return (
                 <Card
                   key={`talk-${index}`}
-                  className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-between min-h-[380px] max-h-[70vh] md:min-h-0 ${item.gridClass}`}
+                  className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-between min-h-[360px] max-h-[70vh] md:min-h-0 ${item.gridClass}`}
                 >
                   <div>
                     <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary-container/50 px-3 py-1 font-label text-xs font-bold uppercase tracking-widest text-on-secondary-container">
@@ -196,7 +196,7 @@ export default function WritingsSection() {
                 href={writing.url}
                 target="_blank"
                 rel="noreferrer"
-                className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-end min-h-[380px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group ${item.gridClass}`}
+                className={`w-[85vw] shrink-0 snap-start md:w-auto md:shrink flex flex-col justify-end min-h-[360px] md:min-h-[320px] max-h-[70vh] overflow-hidden relative group ${item.gridClass}`}
               >
                 {writing.image && (
                   <div className="absolute inset-0 z-0">

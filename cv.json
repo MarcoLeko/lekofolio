@@ -22,8 +22,7 @@
   },
   "hero": {
     "headline": "I care about the details to make software succeed.",
-    "subline": "Specialized in building distributed service architecture that powers at DACH-region-scale. With +7 years of experience across different market sectors, I bridge the gap between white paper drawings and production-ready code.",
-    "philosophy": "Scope, Architect, Defend - Repeat.",
+    "subline": "With +{yearsOfExperiencePlaceholder} years of experience across different market sectors I specialized in building distributed service architecture that runs at DACH-region scale.",
     "philosophySubline": "From functional requirements to drawing the boxes, I focus on building durable solutions designed to survive the happy paths, the bad ones, and the weird edge cases. I have zero interest in corporate politics; I choose to surround myself with pragmatists who balance technical excellence with a drive to get things done."
   },
   "about": {

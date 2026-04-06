@@ -66,7 +66,10 @@ export default function HeroSection() {
           </h1>
           <div className="mb-8 h-1 w-24 bg-secondary-container" />
           <p className="max-w-xl border-l border-outline-variant/30 py-2 pl-6 font-body text-lg leading-relaxed text-on-surface-variant">
-            {cv.hero.subline}
+            {cv.hero.subline.replace(
+              "{yearsOfExperiencePlaceholder}",
+              String(new Date().getFullYear() - 2019),
+            )}
           </p>
         </div>
 
@@ -126,9 +129,6 @@ export default function HeroSection() {
           </div>
           <div className="flex flex-col gap-8 items-start">
             <div className="space-y-2">
-              <p className="text-on-surface text-xl leading-relaxed font-medium">
-                {cv.hero.philosophy}
-              </p>
               <p className="text-on-surface-variant leading-relaxed">
                 {cv.hero.philosophySubline}
               </p>
