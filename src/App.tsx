@@ -2,11 +2,11 @@ import TopNavBar from "./components/TopNavBar";
 import HeroSection from "./components/HeroSection";
 import ExperienceSection from "./components/ExperienceSection";
 import SkillsSection from "./components/SkillsSection";
-import WritingsSection from "./components/WritingsSection.tsx";
+import ArchiveSection from "./components/ArchiveSection.tsx";
 import EducationSection from "./components/EducationSection";
 import Footer from "./components/Footer";
-import { BottomNavBar } from "./components/BottomNavBar.tsx";
 import AboutMeSection from "./components/AboutMeSection.tsx";
+import BottomNavBar from "./components/BottomNavBar.tsx";
 
 export default function App() {
   return (
@@ -20,7 +20,7 @@ export default function App() {
       <HeroSection />
       <ExperienceSection />
       <SkillsSection />
-      <WritingsSection />
+      <ArchiveSection />
       <AboutMeSection />
       <EducationSection />
       <Footer />

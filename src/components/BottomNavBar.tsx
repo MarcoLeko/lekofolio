@@ -1,6 +1,6 @@
 import { navItems } from "../consts/navItems.ts";
 
-export function BottomNavBar() {
+export default function BottomNavBar() {
   return (
     <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center pointer-events-none md:hidden">
       <div className="flex flex-nowrap gap-2 rounded-full bg-surface/90 p-2 backdrop-blur-md shadow-2xl border border-outline-variant/20 pointer-events-auto">

@@ -60,7 +60,7 @@ function stripImageFromHtml(html: string): string {
   return image.includes("https://cdn-images-1.medium.com") ? image : "";
 }
 
-export default function WritingsSection() {
+export default function ArchiveSection() {
   const { data, isPending } = useQuery<Rss2JsonResponse>({
     queryKey: ["medium-articles", mediumFeedUrl],
     queryFn: async () => {
@@ -75,7 +75,7 @@ export default function WritingsSection() {
 
   if (isPending) {
     return (
-      <section id="writings" className="bg-surface-container-low py-24">
+      <section id="archive" className="bg-surface-container-low py-24">
         <div className="mx-auto max-w-7xl px-8">
           <h2 className="mb-16 font-headline text-[2rem] font-bold tracking-tight text-primary text-center md:text-left">
             Writings & Talks
