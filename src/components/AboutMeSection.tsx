@@ -34,13 +34,13 @@ const aboutMeItems = [
     icon: "restaurant",
     title: "Cuisine Standards",
     description:
-      "Talking sh*t about the Italian/Bavarian cuisine. Some things are crossing the line.",
+      "Italian cuisine is non-negotiable. If the pasta isn't al dente, my code quality drops by 15%.",
   },
   {
     icon: "music_note",
     title: "Unpopular Opinions",
     description:
-      "Denying Justin Bieber's unbelievable talent. Check the stats, it's objective.",
+      "Belieber Ops. Programming sessions are powered strictly by 'Purpose' and 'Justice'. No exceptions allowed.",
     className: "lg:col-span-2",
   },
 ];
