@@ -16,7 +16,8 @@ html {
 
 #experience,
 #skills,
-#writings {
+#archive,
+#aboutme {
     scroll-margin-top: 4rem;
 }
 
